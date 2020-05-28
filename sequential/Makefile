@@ -1,18 +1,16 @@
 CXX=icpc
 CXXFLAGS=-c -qopenmp
+LDFLAGS=-qopenmp
 
 OBJECTS=main.o
 
-stencil: $(OBJECTS)
-	$(CXX) -o main $(OBJECTS)
+app: $(OBJECTS)
+	$(CXX) $(LDFLAGS) -o app $(OBJECTS)
 
-all:	main
+all:	app
 
 run:	all
-	./main
-
-queue:	all
-	echo 'cd $$PBS_O_WORKDIR ; ./main' | qsub -l nodes=1:flat -N main
+	./app ../data/in01 ../data/in02
 
 clean:
-	rm -f *.o main *~
+	rm -f *.o app *~
