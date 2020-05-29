@@ -12,9 +12,9 @@ const int skipTrials = 3; // Skip first iteration as warm-up
 
 // function to calculate Hamming distance
 int hammingDistance(string &str1, string &str2) {
-  int count = 0;
+  unsigned int count = 0;
   #pragma omp parallel for reduction(+ : count)
-  for(int i = 0; i < str1.length(); i = i++) {
+  for(unsigned int i = 0; i < str1.length(); i = i++) {
     if (str1[i] != str2[i])
       count++;
   }
@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
 
  double t, dt;
 
- int result = 0;
+ unsigned int result = 0;
 
  for (int iTrial = 1; iTrial <= nTrials; iTrial++) {
   const double t0 = omp_get_wtime();
