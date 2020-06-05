@@ -53,6 +53,7 @@ int main(int argc, char** argv) {
 
  if (myRank == 0) {
   printf("\n\033[1mHammingDistance\033[0m\n");
+  printf("# of nodes: %d\n", nRanks);
   printf("\033[1m%5s %15s\033[0m\n", "Step", "Time, ms"); fflush(stdout);
  }
 

@@ -40,6 +40,7 @@ int main(int argc, char** argv) {
  getline(file2, str2);
 
  printf("\n\033[1mHammingDistance\033[0m\n");
+ printf("# of threads: %d\n", omp_get_max_threads());
  printf("\033[1m%5s %15s\033[0m\n", "Step", "Time, ms"); fflush(stdout);
 
  double t, dt;
